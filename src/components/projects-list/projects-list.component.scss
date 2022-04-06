@@ -1,20 +1,31 @@
 .projects_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  gap: 40px;
 
   & .card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 300px;
+
     &_title {
       width: fit-content;
     }
     &_content {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
 
       &_inline {
-        display: inline-block;
+        display: flex;
         white-space: nowrap;
+        justify-content: space-between;
+
+        &_checkbox {
+          margin-top: 10px;
+        }
       }
     }
     &_actions {

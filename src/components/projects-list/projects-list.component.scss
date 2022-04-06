@@ -1,0 +1,25 @@
+.projects_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+
+  & .card {
+    &_title {
+      width: fit-content;
+    }
+    &_content {
+      display: flex;
+      flex-direction: column;
+
+      &_inline {
+        display: inline-block;
+        white-space: nowrap;
+      }
+    }
+    &_actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

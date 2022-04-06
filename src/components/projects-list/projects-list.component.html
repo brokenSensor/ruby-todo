@@ -1,0 +1,51 @@
+<div class="projects_container">
+  <mat-card
+    class="card"
+    *ngFor="let project of projects; trackBy: trackByProjects"
+  >
+    <mat-card-title
+      class="card_title"
+      [contentEditable]="true"
+      (input)="onUpdateProject($event, project)"
+      >{{ project.title }}</mat-card-title
+    >
+    <mat-card-content class="card_content">
+      <div
+        *ngFor="let todo of project.todos; trackBy: trackByTodos"
+        class="card_content_inline"
+      >
+        <mat-checkbox
+          (change)="
+            toggleTodo(
+              project.getUpdateTodoInput(todo.id, {
+                isCompleted: !todo.isCompleted
+              })
+            )
+          "
+          [checked]="todo.isCompleted"
+          >{{ todo.text }}</mat-checkbox
+        >
+        <button
+          [style.visibility]="!todo.isCompleted ? 'hidden' : 'visible'"
+          mat-icon-button
+          color="warn"
+          (click)="onDeleteTodo(project.getDeleteTodoInput(todo.id))"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="card_actions">
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="onDeleteProject(project.getDeleteProjectInput())"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="onAdd(project.id)">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

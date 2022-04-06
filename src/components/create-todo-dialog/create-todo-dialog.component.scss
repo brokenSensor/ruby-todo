@@ -1,0 +1,17 @@
+.card {
+  box-shadow: none;
+
+  &_title {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &_content {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+  &_actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

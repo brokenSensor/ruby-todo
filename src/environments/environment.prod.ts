@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_URL: 'https://ruby-on-rails-api-1.herokuapp.com',
 };

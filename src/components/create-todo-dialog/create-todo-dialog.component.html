@@ -1,0 +1,30 @@
+<form [formGroup]="createTodoForm">
+  <mat-card class="card">
+    <mat-card-title class="card_title">Новая задача</mat-card-title>
+    <mat-card-content class="card_content">
+      <mat-form-field class="card_content_field" appearance="fill">
+        <mat-label>Задача</mat-label>
+        <input
+          formControlName="text"
+          matInput
+          placeholder="Название задачи..."
+          ng
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="card_actions">
+      <button class="card_actions_btn" mat-raised-button (click)="onClose()">
+        Отмена
+      </button>
+      <button
+        class="card_actions_btn"
+        mat-raised-button
+        color="primary"
+        (click)="onSubmit()"
+        [disabled]="!createTodoForm.valid"
+      >
+        Ок
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
